@@ -1,4 +1,3 @@
-from re import I
 import pyxdf
 import matplotlib.pyplot as plt
 import numpy as np
