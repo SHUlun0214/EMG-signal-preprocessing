@@ -5,17 +5,20 @@ import matplotlib.pyplot as plt
 from scipy.stats import f_oneway
 
 def cut_emg(emg_t, emg_v, emg_filtered, trigger_action_t, ch_n):
+    """
+    find the contraction period of muscle
+    """
     emg_action_index = []
     for i in trigger_action_t:
         emg_action_index.append(find_nearest(emg_t, i))
-    # print(emg_action_index)
+
     emg_action_t = []
 
     for i in range(0, len(emg_action_index),2):
         emg_action_t.append(emg_t[emg_action_index[i]: emg_action_index[i+1]])
     action_num = len(emg_action_t)
     emg_filtered = emg_filtered.tolist()
-    # print(action_num)
+
 
     emg_action_v = []
     emg_action_v_ch = []
