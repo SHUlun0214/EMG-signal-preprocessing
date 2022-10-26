@@ -22,17 +22,6 @@ def KoikeFilter(emg, sf):
 	"""
 	total = sum(coef)
 
-	"""
-	zf
-	"""
-	# zi = scipy.signal.lfilter_zi(coef, 1)
-	# zf = np.ones(sf-1)
-	# for i in range(sf-1):
-	# 	zf[i] = zf[i] * zi[i]
-
-	# y = np.zeros(len(emg))
-	# xn = np.abs(emg/total)
-	# y, zf = scipy.signal.lfilter(coef, 1.0, xn, axis=-1, zi=zf)
 
 	"""
 	zf
@@ -48,7 +37,5 @@ def KoikeFilter(emg, sf):
 	for i in range(y.shape[1]):
 		xn = np.abs(emg[:,i]/total)
 		y[:,i], zf[:,i] = scipy.signal.lfilter(coef, 1.0, xn, axis=-1, zi=zf[:,i])
-
-	# y = y[:,0]  # 多通道删除
 
 	return y, zf
