@@ -6,7 +6,7 @@ from pathlib import Path
 from PlotTrigAndSignal import PlotTriggerAndSignal
 import trigger_signal_plot
 import emg_raw_signal_plot
-import filter_emg_signal
+import filter_emg_signal_simple
 import MVC
 from cut_trigger import cut_trigger as cuttrigger
 from cut_emg import cut_emg as cutemg
@@ -31,7 +31,7 @@ emg_v = emg_v[0]
 PlotTriggerAndSignal(emg_t, emg_v, trigger_t, trigger_v, ch_n)
 
 # # #-------------------------- filter the EMG signal --------------------------
-emg_filtered = filter_emg_signal.filter_emg_signal(emg_t, emg_v, sfreq)
+emg_filtered = filter_emg_signal_simple.filter_emg_signal(emg_t, emg_v, sfreq)
 
 #-------------------------- cut trigger signal -------------------------------
 trigger_action_t, trigger_action_index, trigger_action_v = cuttrigger(trigger_t, trigger_v)
