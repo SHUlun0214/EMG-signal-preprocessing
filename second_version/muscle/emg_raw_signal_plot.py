@@ -1,19 +1,21 @@
 from platform import java_ver
 import matplotlib.pyplot as plt
 def emg_raw_signal_plot(data):
-    emg_t = data['time_stamps']
-    emg_v = data['time_series']
-    ch_n = len(emg_v[0])
-    emg_t -= emg_t[0]
+    emg_t = data['time_stamps']         # read time series of sEMG signal
+    emg_v = data['time_series']         # read amplitude of sEMG signal
+    ch_n = len(emg_v[0])                # read the number of channel
+    emg_t -= emg_t[0]                   # set the initial time to 0s
     emg = []
     emg_channel = []
+    
+    # arrange the emg_v
     for i in range(0, ch_n):
         for j in emg_v:
             emg_channel.append(j[i])
         emg.append(emg_channel)
         emg_channel = []
     emg_v = emg
-    # print(len(emg_v))
+    
     plt.rcParams['savefig.dpi'] = 300
     plt.figure(figsize=(20,15))
     for i in range(4,6):
