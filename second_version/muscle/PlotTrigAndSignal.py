@@ -2,8 +2,7 @@ import matplotlib.pyplot as plt
 from findnearest import find_nearest
 import numpy as np
 def PlotTriggerAndSignal(emg_t, emg_v, trigger_t, trigger_v, ch_n):
-    plt.rcParams['savefig.dpi'] = 300    
-    # plt.rcParams['figure.dpi'] = 300    
+    plt.rcParams['savefig.dpi'] = 300      
     plt.figure(figsize=(20,15))
     for i in range(4,6):
         j = i + 1
